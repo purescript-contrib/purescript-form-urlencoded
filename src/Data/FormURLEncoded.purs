@@ -1,5 +1,6 @@
 module Data.FormURLEncoded
   ( FormURLEncoded(..)
+  , runFormURLEncoded
   , encode
   ) where
 
