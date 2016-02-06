@@ -1,0 +1,17 @@
+{
+  "name": "purescript-form-urlencoded",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-affjax": "~0.10.2",
+    "purescript-globals": "~0.2.2",
+    "purescript-generics": "~0.7.2"
+  }
+}
