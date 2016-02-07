@@ -15,10 +15,9 @@ Example:
 > import Data.FormURLEncoded (fromArray, encode)
 > import Data.Maybe (Maybe(..))
 > import Data.Tuple (Tuple(..))
-> encode (fromArray [ Tuple "hey" Nothing, Tuple "Oh" (Just "Let's go!") ]
-(line 1, column 19):
-unexpected [
-expecting ., {, `, qualifier or symbol
-> encode (fromArray [ Tuple "hey" Nothing, Tuple "Oh" (Just "Let's go!") ])
+
+> encode (fromArray [ Tuple "hey" Nothing
+>                   , Tuple "Oh" (Just "Let's go!")
+>                   ])
 "hey&Oh=Let's%20go!"
 ```
