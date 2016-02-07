@@ -1,6 +1,7 @@
 module Data.FormURLEncoded
-  ( FormURLEncoded(..)
-  , runFormURLEncoded
+  ( FormURLEncoded()
+  , fromArray
+  , toArray
   , encode
   ) where
 
@@ -21,8 +22,13 @@ newtype FormURLEncoded
   = FormURLEncoded
       (Array (Tuple String (Maybe String)))
 
-runFormURLEncoded :: FormURLEncoded -> Array (Tuple String (Maybe String))
-runFormURLEncoded (FormURLEncoded a) = a
+-- | Construct `FormURLEncoded` from an `Array` of key-value pairs.
+fromArray :: Array (Tuple String (Maybe String)) -> FormURLEncoded
+fromArray = FormURLEncoded
+
+-- | View `FormURLEncoded` as an `Array` of key-value pairs.
+toArray :: FormURLEncoded -> Array (Tuple String (Maybe String))
+toArray (FormURLEncoded a) = a
 
 derive instance genericFormUrlEncoded :: Generic FormURLEncoded
 
@@ -43,7 +49,7 @@ instance requestableFormURLEncoded :: Requestable FormURLEncoded where
 
 -- | Encode `FormURLEncoded` as `application/x-www-form-urlencoded`.
 encode :: FormURLEncoded -> String
-encode = String.joinWith "&" <<< map encodePart <<< runFormURLEncoded
+encode = String.joinWith "&" <<< map encodePart <<< toArray
   where
     encodePart (Tuple k Nothing) = encodeURIComponent k
     encodePart (Tuple k (Just v)) =

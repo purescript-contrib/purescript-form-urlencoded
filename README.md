@@ -12,11 +12,13 @@ Documentation is available on [Pursuit][Pursuit].
 Example:
 
 ```haskell
-> import Data.FormURLEncoded (FormURLEncoded(..), encode)
+> import Data.FormURLEncoded (fromArray, encode)
 > import Data.Maybe (Maybe(..))
 > import Data.Tuple (Tuple(..))
-> encode (FormURLEncoded [ Tuple "foo" (Just "bar"), Tuple "baz" (Just "qux") ])
-"foo=bar&baz=qux"
-> encode (FormURLEncoded [ Tuple "hey" (Just "Hey!"), Tuple "Oh" (Just "Let's go!") ])
-"hey=Hey!&Oh=Let's%20go!"
+> encode (fromArray [ Tuple "hey" Nothing, Tuple "Oh" (Just "Let's go!") ]
+(line 1, column 19):
+unexpected [
+expecting ., {, `, qualifier or symbol
+> encode (fromArray [ Tuple "hey" Nothing, Tuple "Oh" (Just "Let's go!") ])
+"hey&Oh=Let's%20go!"
 ```
