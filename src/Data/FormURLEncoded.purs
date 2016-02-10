@@ -5,11 +5,11 @@ module Data.FormURLEncoded
   , encode
   ) where
 
-import Prelude (class Show, class Ord, class Eq, map, (<<<), (<>), compare, eq)
+import Prelude (Show, Ord, Eq, map, (<<<), (<>), compare, eq)
 import Data.String (joinWith) as String
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
-import Data.Generic (class Generic, gShow)
+import Data.Generic (Generic, gShow)
 
 import Global (encodeURIComponent)
 
