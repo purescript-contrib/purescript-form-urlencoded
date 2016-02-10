@@ -6,8 +6,8 @@
 [![Maintainer: zudov](https://img.shields.io/badge/maintainer-zudov-lightgrey.svg)](https://github.com/zudov)
 
 A `FormURLEncoded` datatype represents an ordered list of key-value pairs
-with possible duplicates. This package provides `encode` function which encodes
-`FormURLEncoded` into string according to `application/x-www-form-urlencoded`.
+with possible duplicates. `encode` function allows to transform `FormURLEncoded`
+into a string according to `application/x-www-form-urlencoded`.
 
 Documentation is available on [Pursuit][Pursuit].
 
