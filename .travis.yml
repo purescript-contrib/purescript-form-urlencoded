@@ -6,7 +6,7 @@ env:
   - PSC_VERSION=0.8.0
   - PSC_VERSION=0.7.6
 install:
-  - npm install purescript-$PSC_VERSION pulp bower -g
+  - npm install purescript@${PSC_VERSION} pulp bower -g
   - bower update
 script:
   - pulp build
