@@ -9,8 +9,6 @@ A `FormURLEncoded` datatype represents an ordered list of key-value pairs
 with possible duplicates. This package provides `encode` function which encodes
 `FormURLEncoded` into string according to `application/x-www-form-urlencoded`.
 
-Appropriate `Requestable` instance allows to use `FormURLEncoded` with `purescript-affjax`.
-
 Documentation is available on [Pursuit][Pursuit].
 
 [Pursuit]: https://pursuit.purescript.org/packages/purescript-form-urlencoded

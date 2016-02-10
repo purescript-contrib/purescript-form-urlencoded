@@ -11,11 +11,7 @@ import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
 import Data.Generic (class Generic, gShow)
 
-import Network.HTTP.Affjax.Request (class Requestable)
-import Network.HTTP.MimeType.Common (applicationFormURLEncoded)
 import Global (encodeURIComponent)
-
-import Unsafe.Coerce (unsafeCoerce)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
 newtype FormURLEncoded
@@ -40,12 +36,6 @@ instance ordFormUrlEncoded :: Ord FormURLEncoded where
 
 instance showFormUrlEncoded :: Show FormURLEncoded where
   show = gShow
-
-instance requestableFormURLEncoded :: Requestable FormURLEncoded where
-  toRequest form =
-    Tuple
-      (Just applicationFormURLEncoded)
-      (unsafeCoerce (encode form))
 
 -- | Encode `FormURLEncoded` as `application/x-www-form-urlencoded`.
 encode :: FormURLEncoded -> String
