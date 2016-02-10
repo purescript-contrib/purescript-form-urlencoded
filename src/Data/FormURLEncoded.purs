@@ -5,7 +5,7 @@ module Data.FormURLEncoded
   , encode
   ) where
 
-import Prelude ((<>), (<<<), class Eq, class Ord, map, compare, eq, class Show)
+import Prelude (class Show, class Ord, class Eq, map, (<<<), (<>), compare, eq)
 import Data.String (joinWith) as String
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
