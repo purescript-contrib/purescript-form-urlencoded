@@ -3,8 +3,7 @@ sudo: false
 node_js:
   - 5.5
 env:
-  - PSC_VERSION=0.8.0
-  - PSC_VERSION=0.7.6
+  - PSC_VERSION=0.9.1
 install:
   - npm install purescript@${PSC_VERSION} pulp bower -g
   - bower update
