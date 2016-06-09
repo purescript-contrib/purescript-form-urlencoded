@@ -1,5 +1,6 @@
 {
   "name": "purescript-form-urlencoded",
+  "license": "BSD-3-Clause",
   "moduleType": [
     "node"
   ],
