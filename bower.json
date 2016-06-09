@@ -1,14 +1,17 @@
 {
   "name": "purescript-form-urlencoded",
   "license": "BSD-3-Clause",
-  "moduleType": [
-    "node"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purescript-contrib/purescript-form-urlencoded.git"
+  },
   "ignore": [
     "**/.*",
-    "node_modules",
     "bower_components",
-    "output"
+    "node_modules",
+    "output",
+    "bower.json",
+    "package.json"
   ],
   "dependencies": {
     "purescript-prelude": "^1.0.1",
@@ -17,9 +20,5 @@
     "purescript-maybe": "^1.0.0",
     "purescript-strings": "^1.0.0",
     "purescript-tuples": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/purescript-contrib/purescript-form-urlencoded.git"
   }
 }
