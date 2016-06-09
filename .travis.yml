@@ -1,20 +1,15 @@
 language: node_js
-sudo: false
-node_js:
-  - 5.5
-env:
-  - PSC_VERSION=0.9.1
+dist: trusty
+sudo: required
+node_js: 6
 install:
-  - npm install purescript@${PSC_VERSION} pulp bower -g
-  - bower update
+  - npm install -g bower
+  - npm install
+  - bower install
 script:
-  - pulp build
-
+  - npm run -s build
 after_success:
-  - >-
-    test $TRAVIS_TAG &&
-    psc-publish > .pursuit.json &&
-    curl -X POST https://pursuit.purescript.org/packages \
-      -d @.pursuit.json \
-      -H 'Accept: application/json' \
-      -H "Authorization: token ${GITHUB_TOKEN}"
+- >-
+  test $TRAVIS_TAG &&
+  echo $GITHUB_TOKEN | pulp login &&
+  echo y | pulp publish --no-push
