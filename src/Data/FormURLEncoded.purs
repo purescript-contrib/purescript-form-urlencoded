@@ -5,11 +5,11 @@ module Data.FormURLEncoded
   , encode
   ) where
 
-import Prelude (class Show, class Ord, class Eq, map, (<<<), (<>), compare, eq)
+import Prelude (class Show, class Ord, class Eq, map, (<<<), (<>))
 import Data.String (joinWith) as String
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
-import Data.Generic (class Generic, gShow)
+import Data.Generic (class Generic)
 
 import Global (encodeURIComponent)
 
@@ -27,15 +27,9 @@ toArray :: FormURLEncoded -> Array (Tuple String (Maybe String))
 toArray (FormURLEncoded a) = a
 
 derive instance genericFormUrlEncoded :: Generic FormURLEncoded
-
-instance eqFormUrlEncoded :: Eq FormURLEncoded where
-  eq (FormURLEncoded a) (FormURLEncoded b) = eq a b
-
-instance ordFormUrlEncoded :: Ord FormURLEncoded where
-  compare (FormURLEncoded a) (FormURLEncoded b) = compare a b
-
-instance showFormUrlEncoded :: Show FormURLEncoded where
-  show = gShow
+derive newtype instance eqFormUrlEncoded :: Eq FormURLEncoded
+derive newtype instance ordFormUrlEncoded :: Ord FormURLEncoded
+derive newtype instance showFormUrlEncoded :: Show FormURLEncoded
 
 -- | Encode `FormURLEncoded` as `application/x-www-form-urlencoded`.
 encode :: FormURLEncoded -> String
