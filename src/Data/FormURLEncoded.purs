@@ -5,6 +5,7 @@ module Data.FormURLEncoded
   , encode
   ) where
 
+import Data.Newtype (class Newtype)
 import Data.Generic (class Generic)
 import Data.Maybe (Maybe(..))
 import Data.Monoid (class Monoid)
@@ -28,6 +29,7 @@ toArray :: FormURLEncoded -> Array (Tuple String (Maybe String))
 toArray (FormURLEncoded a) = a
 
 derive instance genericFormUrlEncoded :: Generic FormURLEncoded
+derive instance newtypeFormUrlEncoded :: Newtype FormURLEncoded _
 derive newtype instance eqFormUrlEncoded :: Eq FormURLEncoded
 derive newtype instance ordFormUrlEncoded :: Ord FormURLEncoded
 derive newtype instance showFormUrlEncoded :: Show FormURLEncoded
