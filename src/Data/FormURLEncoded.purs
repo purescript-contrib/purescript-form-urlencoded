@@ -1,5 +1,5 @@
 module Data.FormURLEncoded
-  ( FormURLEncoded()
+  ( FormURLEncoded(FormURLEncoded)
   , fromArray
   , toArray
   , encode
