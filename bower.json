@@ -14,11 +14,11 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "^2.0.0",
-    "purescript-globals": "^2.0.0",
-    "purescript-generics": "^3.0.0",
-    "purescript-maybe": "^2.0.0",
-    "purescript-strings": "^2.0.0",
-    "purescript-tuples": "^3.0.0"
+    "purescript-prelude": "^3.0.0",
+    "purescript-globals": "^3.0.0",
+    "purescript-generics": "^4.0.0",
+    "purescript-maybe": "^3.0.0",
+    "purescript-strings": "^3.0.0",
+    "purescript-tuples": "^4.0.0"
   }
 }
