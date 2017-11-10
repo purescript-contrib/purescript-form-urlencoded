@@ -16,9 +16,9 @@
   "dependencies": {
     "purescript-prelude": "^3.0.0",
     "purescript-globals": "^3.0.0",
-    "purescript-generics": "^4.0.0",
     "purescript-maybe": "^3.0.0",
     "purescript-strings": "^3.0.0",
-    "purescript-tuples": "^4.0.0"
+    "purescript-tuples": "^4.0.0",
+    "purescript-generics-rep": "^5.3.0"
   }
 }
