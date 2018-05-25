@@ -19,6 +19,6 @@
     "purescript-newtype": "^3.0.0",
     "purescript-prelude": "^4.0.0",
     "purescript-strings": "^4.0.0",
-    "purescript-tuples": "^4.0.0"
+    "purescript-tuples": "^5.0.0"
   }
 }
