@@ -1,24 +1,15 @@
-module Data.FormURLEncoded
-  ( FormURLEncoded(FormURLEncoded)
-  , fromArray
-  , toArray
-  , encode
-  ) where
+module Data.FormURLEncoded where
 
-import Data.Newtype (class Newtype)
-import Data.Generic (class Generic)
+import Prelude
+
 import Data.Maybe (Maybe(..))
-import Data.Monoid (class Monoid)
-import Data.Semigroup (class Semigroup)
+import Data.Newtype (class Newtype)
 import Data.String (joinWith) as String
 import Data.Tuple (Tuple(..))
-import Global (encodeURIComponent)
-import Prelude (class Show, class Ord, class Eq, map, (<<<), (<>))
+import Global.Unsafe (unsafeEncodeURIComponent)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
-newtype FormURLEncoded
-  = FormURLEncoded
-      (Array (Tuple String (Maybe String)))
+newtype FormURLEncoded = FormURLEncoded (Array (Tuple String (Maybe String)))
 
 -- | Construct `FormURLEncoded` from an `Array` of key-value pairs.
 fromArray :: Array (Tuple String (Maybe String)) -> FormURLEncoded
@@ -28,18 +19,19 @@ fromArray = FormURLEncoded
 toArray :: FormURLEncoded -> Array (Tuple String (Maybe String))
 toArray (FormURLEncoded a) = a
 
-derive instance genericFormUrlEncoded :: Generic FormURLEncoded
 derive instance newtypeFormUrlEncoded :: Newtype FormURLEncoded _
 derive newtype instance eqFormUrlEncoded :: Eq FormURLEncoded
 derive newtype instance ordFormUrlEncoded :: Ord FormURLEncoded
-derive newtype instance showFormUrlEncoded :: Show FormURLEncoded
 derive newtype instance semigroupFormUrlEncoded :: Semigroup FormURLEncoded
 derive newtype instance monoidFormUrlEncoded :: Monoid FormURLEncoded
+
+instance showFormUrlEncoded :: Show FormURLEncoded where
+  show (FormURLEncoded kvs) = "(FormURLEncoded " <> show kvs <> ")"
 
 -- | Encode `FormURLEncoded` as `application/x-www-form-urlencoded`.
 encode :: FormURLEncoded -> String
 encode = String.joinWith "&" <<< map encodePart <<< toArray
   where
-    encodePart (Tuple k Nothing) = encodeURIComponent k
-    encodePart (Tuple k (Just v)) =
-      encodeURIComponent k <> "=" <> encodeURIComponent v
+    encodePart = case _ of
+      Tuple k Nothing -> unsafeEncodeURIComponent k
+      Tuple k (Just v) -> unsafeEncodeURIComponent k <> "=" <> unsafeEncodeURIComponent v
