@@ -1,11 +1,12 @@
 module Data.FormURLEncoded where
 
 import Prelude
-import Data.Newtype (class Newtype)
+
 import Data.Maybe (Maybe(..))
+import Data.Newtype (class Newtype)
 import Data.String (joinWith) as String
 import Data.Tuple (Tuple(..))
-import Global (encodeURIComponent)
+import Global.Unsafe (unsafeEncodeURIComponent)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
 newtype FormURLEncoded = FormURLEncoded (Array (Tuple String (Maybe String)))
@@ -32,5 +33,5 @@ encode :: FormURLEncoded -> String
 encode = String.joinWith "&" <<< map encodePart <<< toArray
   where
     encodePart = case _ of
-      Tuple k Nothing -> encodeURIComponent k
-      Tuple k (Just v) -> encodeURIComponent k <> "=" <> encodeURIComponent v
+      Tuple k Nothing -> unsafeEncodeURIComponent k
+      Tuple k (Just v) -> unsafeEncodeURIComponent k <> "=" <> unsafeEncodeURIComponent v
