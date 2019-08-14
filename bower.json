@@ -14,11 +14,12 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-globals": "^4.0.0",
+    "purescript-globals": "^4.1.0",
     "purescript-maybe": "^4.0.0",
     "purescript-newtype": "^3.0.0",
     "purescript-prelude": "^4.0.0",
     "purescript-strings": "^4.0.0",
-    "purescript-tuples": "^5.0.0"
+    "purescript-tuples": "^5.0.0",
+    "purescript-foldable-traversable": "^4.1.1"
   }
 }

@@ -5,8 +5,9 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.String (joinWith) as String
+import Data.Traversable (traverse)
 import Data.Tuple (Tuple(..))
-import Global.Unsafe (unsafeEncodeURIComponent)
+import Global (encodeURIComponent)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
 newtype FormURLEncoded = FormURLEncoded (Array (Tuple String (Maybe String)))
@@ -29,9 +30,9 @@ instance showFormUrlEncoded :: Show FormURLEncoded where
   show (FormURLEncoded kvs) = "(FormURLEncoded " <> show kvs <> ")"
 
 -- | Encode `FormURLEncoded` as `application/x-www-form-urlencoded`.
-encode :: FormURLEncoded -> String
-encode = String.joinWith "&" <<< map encodePart <<< toArray
+encode :: FormURLEncoded -> Maybe String
+encode = map (String.joinWith "&") <<< traverse encodePart <<< toArray
   where
     encodePart = case _ of
-      Tuple k Nothing -> unsafeEncodeURIComponent k
-      Tuple k (Just v) -> unsafeEncodeURIComponent k <> "=" <> unsafeEncodeURIComponent v
+      Tuple k Nothing -> encodeURIComponent k
+      Tuple k (Just v) -> (\key val -> key <> "=" <> val) <$> encodeURIComponent k <*> encodeURIComponent v
