@@ -9,6 +9,7 @@
 A `FormURLEncoded` datatype represents an ordered list of key-value pairs
 with possible duplicates. `encode` function allows to transform `FormURLEncoded`
 into a `Maybe String` according to `application/x-www-form-urlencoded`.
+`decode` function transforms a string into a `Maybe FormURLEncoded` structure.
 
 Documentation is available on [Pursuit][Pursuit].
 
@@ -25,6 +26,9 @@ Example:
 >                   , Tuple "Oh" (Just "Let's go!")
 >                   ])
 Just "hey&Oh=Let's%20go!"
+
+> decode "a=aa&b=bb"
+Just (FormURLEncoded [(Tuple "a" (Just "aa")),(Tuple "b" (Just "bb"))])
 ```
 
 ## Contributing

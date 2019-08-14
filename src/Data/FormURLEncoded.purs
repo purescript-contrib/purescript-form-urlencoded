@@ -4,10 +4,11 @@ import Prelude
 
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
-import Data.String (joinWith) as String
+import Data.String (joinWith, split) as String
+import Data.String.Pattern (Pattern(..))
 import Data.Traversable (traverse)
 import Data.Tuple (Tuple(..))
-import Global (encodeURIComponent)
+import Global (decodeURIComponent, encodeURIComponent)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
 newtype FormURLEncoded = FormURLEncoded (Array (Tuple String (Maybe String)))
@@ -36,3 +37,12 @@ encode = map (String.joinWith "&") <<< traverse encodePart <<< toArray
     encodePart = case _ of
       Tuple k Nothing -> encodeURIComponent k
       Tuple k (Just v) -> (\key val -> key <> "=" <> val) <$> encodeURIComponent k <*> encodeURIComponent v
+ 
+-- | Decode `FormURLEncoded` from `application/x-www-form-urlencoded`.
+decode :: String -> Maybe FormURLEncoded
+decode = map FormURLEncoded <<< traverse decodePart <<< String.split (Pattern "&")
+  where
+    decodePart = String.split (Pattern "=") >>> case _ of
+      [k, v] -> (\key val -> Tuple key $ Just val) <$> decodeURIComponent k <*> decodeURIComponent v
+      [k]    -> Tuple <$> decodeURIComponent k <*> pure Nothing
+      _      -> Nothing
