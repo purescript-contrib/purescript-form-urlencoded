@@ -4,6 +4,7 @@
 [![Build status](https://travis-ci.org/purescript-contrib/purescript-form-urlencoded.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-form-urlencoded)
 [![Pursuit](http://pursuit.purescript.org/packages/purescript-form-urlencoded/badge)](http://pursuit.purescript.org/packages/purescript-form-urlencoded/)
 [![Maintainer: zudov](https://img.shields.io/badge/maintainer-zudov-lightgrey.svg)](https://github.com/zudov)
+[![Maintainer: thomashoneyman](https://img.shields.io/badge/maintainer-thomashoneyman-lightgrey.svg)](https://github.com/thomashoneyman)
 
 A `FormURLEncoded` datatype represents an ordered list of key-value pairs
 with possible duplicates. `encode` function allows to transform `FormURLEncoded`
