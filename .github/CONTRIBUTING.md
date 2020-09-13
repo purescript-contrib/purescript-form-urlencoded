@@ -1,4 +1,4 @@
-# Contributing to Form UrlEncoded
+# Contributing to Form URLEncoded
 
 Thanks for your interest in contributing to `form-urlencoded`! We welcome new contributions regardless of your level of experience or familiarity with PureScript.
 
