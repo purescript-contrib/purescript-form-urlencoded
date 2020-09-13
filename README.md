@@ -1,10 +1,10 @@
 # Form URLEncoded
 
 [![CI](https://github.com/purescript-contrib/purescript-form-urlencoded/workflows/CI/badge.svg?branch=main)](https://github.com/purescript-contrib/purescript-form-urlencoded/actions?query=workflow%3ACI+branch%3Amain)
-[![Release](http://img.shields.io/github/release/purescript-contrib/purescript-form-urlencoded.svg)](https://github.com/purescript-contrib/purescript-form-urlencoded/releases)
-[![Pursuit](http://pursuit.purescript.org/packages/purescript-form-urlencoded/badge)](http://pursuit.purescript.org/packages/purescript-form-urlencoded)
-[![Maintainer: zudov](https://img.shields.io/badge/maintainer-zudov-teal.svg)](http://github.com/zudov)
-[![Maintainer: thomashoneyman](https://img.shields.io/badge/maintainer-thomashoneyman-teal.svg)](http://github.com/thomashoneyman)
+[![Release](https://img.shields.io/github/release/purescript-contrib/purescript-form-urlencoded.svg)](https://github.com/purescript-contrib/purescript-form-urlencoded/releases)
+[![Pursuit](https://pursuit.purescript.org/packages/purescript-form-urlencoded/badge)](https://pursuit.purescript.org/packages/purescript-form-urlencoded)
+[![Maintainer: zudov](https://img.shields.io/badge/maintainer-zudov-teal.svg)](https://github.com/zudov)
+[![Maintainer: thomashoneyman](https://img.shields.io/badge/maintainer-thomashoneyman-teal.svg)](https://github.com/thomashoneyman)
 
 A `FormURLEncoded` datatype represents an ordered list of key-value pairs with possible duplicates. The `encode` function allows to transform `FormURLEncoded` into a `Maybe String` according to `application/x-www-form-urlencoded`. The `decode` function transforms a string into a `Maybe FormURLEncoded` structure.
 
