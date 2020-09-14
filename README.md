@@ -25,7 +25,10 @@ Use the `encode` function to properly encode an array of key-value pairs, and th
 > import Data.Maybe (Maybe(..))
 > import Data.Tuple (Tuple(..))
 
-> encode (fromArray [ Tuple "hey" Nothing, Tuple "Oh" (Just "Let's go!") ])
+> encode $ fromArray 
+>   [ Tuple "hey" Nothing
+>   , Tuple "Oh" (Just "Let's go!")
+>   ]
 Just "hey&Oh=Let's%20go!"
 
 > decode "a=aa&b=bb"
