@@ -4,7 +4,7 @@
   , "console"
   , "effect"
   , "foldable-traversable"
-  , "globals"
+  , "numbers"
   , "maybe"
   , "newtype"
   , "prelude"
