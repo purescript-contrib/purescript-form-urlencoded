@@ -4,7 +4,6 @@
   , "console"
   , "effect"
   , "foldable-traversable"
-  , "numbers"
   , "maybe"
   , "newtype"
   , "prelude"
