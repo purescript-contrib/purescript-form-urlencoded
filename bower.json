@@ -3,7 +3,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/purescript-contrib/purescript-form-urlencoded.git"
+    "url": "https://github.com/purescript-contrib/purescript-form-urlencoded.git"
   },
   "ignore": [
     "**/.*",
@@ -14,15 +14,15 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-globals": "^4.1.0",
-    "purescript-maybe": "^4.0.0",
-    "purescript-newtype": "^3.0.0",
-    "purescript-prelude": "^4.0.0",
-    "purescript-strings": "^4.0.0",
-    "purescript-tuples": "^5.0.0",
-    "purescript-foldable-traversable": "^4.1.1"
+    "purescript-maybe": "master",
+    "purescript-newtype": "master",
+    "purescript-prelude": "master",
+    "purescript-strings": "master",
+    "purescript-tuples": "master",
+    "purescript-js-uri": "https://github.com/purescript-contrib/purescript-js-uri.git#main",
+    "purescript-foldable-traversable": "master"
   },
   "devDependencies": {
-    "purescript-assert": "^4.1.0"
+    "purescript-assert": "master"
   }
 }
