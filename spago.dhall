@@ -4,6 +4,7 @@
   , "console"
   , "effect"
   , "foldable-traversable"
+  , "js-uri"
   , "maybe"
   , "newtype"
   , "prelude"
