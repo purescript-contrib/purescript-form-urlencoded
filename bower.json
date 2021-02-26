@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "purescript-foldable-traversable": "^5.0.0",
-    "purescript-js-uri": "^2.0.0",
+    "purescript-js-uri": "https://github.com/purescript-contrib/purescript-js-uri#2.0.0",
     "purescript-maybe": "^5.0.0",
     "purescript-newtype": "^4.0.0",
     "purescript-prelude": "^5.0.0",
