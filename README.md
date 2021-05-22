@@ -28,7 +28,7 @@ Use the `encode` function to properly encode an array of key-value pairs, and th
 >   [ Tuple "hey" Nothing
 >   , Tuple "Oh" (Just "Let's go!")
 >   ]
-Just "hey&Oh=Let's%20go!"
+Just "hey&Oh=Let's+go!"
 
 > decode "a=aa&b=bb"
 Just (FormURLEncoded [(Tuple "a" (Just "aa")),(Tuple "b" (Just "bb"))])

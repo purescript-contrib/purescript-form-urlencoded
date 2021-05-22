@@ -10,6 +10,8 @@ New features:
 
 Bugfixes:
 
+- Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20` (#24 by @dederer)
+
 Other improvements:
 
 ## [v6.0.0](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.0) - 2021-02-26
