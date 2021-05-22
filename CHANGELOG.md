@@ -10,7 +10,7 @@ New features:
 
 Bugfixes:
 
-- Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20`
+- Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20` (#24 by @dederer)
 
 Other improvements:
 
