@@ -8,7 +8,7 @@ import Data.String (joinWith, split) as String
 import Data.String.Pattern (Pattern(..))
 import Data.Traversable (traverse)
 import Data.Tuple (Tuple(..))
-import JSURI (decodeURIComponent, encodeURIComponent)
+import JSURI (decodeFormURLComponent, encodeFormURLComponent)
 
 -- | `FormURLEncoded` is an ordered list of key-value pairs with possible duplicates.
 newtype FormURLEncoded = FormURLEncoded (Array (Tuple String (Maybe String)))
@@ -35,14 +35,14 @@ encode :: FormURLEncoded -> Maybe String
 encode = map (String.joinWith "&") <<< traverse encodePart <<< toArray
   where
     encodePart = case _ of
-      Tuple k Nothing -> encodeURIComponent k
-      Tuple k (Just v) -> (\key val -> key <> "=" <> val) <$> encodeURIComponent k <*> encodeURIComponent v
+      Tuple k Nothing -> encodeFormURLComponent k
+      Tuple k (Just v) -> (\key val -> key <> "=" <> val) <$> encodeFormURLComponent k <*> encodeFormURLComponent v
 
 -- | Decode `FormURLEncoded` from `application/x-www-form-urlencoded`.
 decode :: String -> Maybe FormURLEncoded
 decode = map FormURLEncoded <<< traverse decodePart <<< String.split (Pattern "&")
   where
     decodePart = String.split (Pattern "=") >>> case _ of
-      [k, v] -> (\key val -> Tuple key $ Just val) <$> decodeURIComponent k <*> decodeURIComponent v
-      [k]    -> Tuple <$> decodeURIComponent k <*> pure Nothing
+      [k, v] -> (\key val -> Tuple key $ Just val) <$> decodeFormURLComponent k <*> decodeFormURLComponent v
+      [k]    -> Tuple <$> decodeFormURLComponent k <*> pure Nothing
       _      -> Nothing

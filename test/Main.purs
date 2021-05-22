@@ -27,6 +27,8 @@ main = do
 
   testDecode "a=b&%8A=c" Nothing
 
+  testDecode "a+b=aa+bb" (Just $ FormURLEncoded [ Tuple "a b" $ Just "aa bb" ])
+
   testEncode (FormURLEncoded [ Tuple "a" $ Just "aa", Tuple "b" $ Just "bb" ]) $ Just "a=aa&b=bb"
 
   testEncode (FormURLEncoded [ Tuple "this" $ Just "this=this" ]) $ Just "this=this%3Dthis"
@@ -40,6 +42,8 @@ main = do
       , Tuple "z" $ Just ""
       ])
     (Just "&x=x&&y=y&z=")
+
+  testEncode (FormURLEncoded [ Tuple "a b" $ Just "aa bb" ]) $ Just "a+b=aa+bb"
 
   where
 
