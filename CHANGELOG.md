@@ -10,18 +10,17 @@ New features:
 
 Bugfixes:
 
-- Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20` (#24 by @dederer)
-
 Other improvements:
+
+## [v6.0.1](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.1) - 2021-06-16
+
+Bugfixes:
+- Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20` (#24 by @dederer)
 
 ## [v6.0.0](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.0) - 2021-02-26
 
 Breaking changes:
 - Added support for PureScript 0.14 and dropped support for all previous versions (#20)
-
-New features:
-
-Bugfixes:
 
 Other improvements:
 - Added tests for `decode` and `encode` (#15 by @nsaunders)
