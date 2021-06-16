@@ -12,10 +12,15 @@ Bugfixes:
 
 Other improvements:
 
-## [v6.0.1](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.1) - 2021-06-16
+## [v6.0.2](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.2) - 2021-06-16
 
 Bugfixes:
 - Fixed encoding of spaces. Spaces must be replaced by `+` instead of `%20` (#24 by @dederer)
+
+## [v6.0.1](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.1) - 2021-02-26
+
+Other improvements:
+- Fixed link to js-uri in bower.json
 
 ## [v6.0.0](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.0) - 2021-02-26
 
