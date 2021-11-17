@@ -48,7 +48,6 @@ main = do
   testEncode (FormURLEncoded [ Tuple "a b" $ Just "aa bb" ]) $ Just "a+b=aa+bb"
 
   where
-
   testDecode :: String -> Maybe FormURLEncoded -> Effect Unit
   testDecode input expected =
     (log $ "decode \"" <> input <> "\" == " <> show expected) *> assert (decode input == expected)
