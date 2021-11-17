@@ -16,14 +16,15 @@ main = do
 
   testDecode "this=this%3Dthis" (Just $ FormURLEncoded [ Tuple "this" $ Just "this=this" ])
 
-  testDecode "&x=x&&y=y&z=" $
-    Just $ FormURLEncoded
-      [ Tuple "" Nothing
-      , Tuple "x" $ Just "x"
-      , Tuple "" Nothing
-      , Tuple "y" $ Just "y"
-      , Tuple "z" $ Just ""
-      ]
+  testDecode "&x=x&&y=y&z="
+    $ Just
+    $ FormURLEncoded
+        [ Tuple "" Nothing
+        , Tuple "x" $ Just "x"
+        , Tuple "" Nothing
+        , Tuple "y" $ Just "y"
+        , Tuple "z" $ Just ""
+        ]
 
   testDecode "a=b&%8A=c" Nothing
 
@@ -34,23 +35,23 @@ main = do
   testEncode (FormURLEncoded [ Tuple "this" $ Just "this=this" ]) $ Just "this=this%3Dthis"
 
   testEncode
-    (FormURLEncoded
-      [ Tuple "" Nothing
-      , Tuple "x" $ Just "x"
-      , Tuple "" Nothing
-      , Tuple "y" $ Just "y"
-      , Tuple "z" $ Just ""
-      ])
+    ( FormURLEncoded
+        [ Tuple "" Nothing
+        , Tuple "x" $ Just "x"
+        , Tuple "" Nothing
+        , Tuple "y" $ Just "y"
+        , Tuple "z" $ Just ""
+        ]
+    )
     (Just "&x=x&&y=y&z=")
 
   testEncode (FormURLEncoded [ Tuple "a b" $ Just "aa bb" ]) $ Just "a+b=aa+bb"
 
   where
+  testDecode :: String -> Maybe FormURLEncoded -> Effect Unit
+  testDecode input expected =
+    (log $ "decode \"" <> input <> "\" == " <> show expected) *> assert (decode input == expected)
 
-    testDecode :: String -> Maybe FormURLEncoded -> Effect Unit
-    testDecode input expected =
-      (log $ "decode \"" <> input <> "\" == " <> show expected) *> assert (decode input == expected)
-
-    testEncode :: FormURLEncoded -> Maybe String -> Effect Unit
-    testEncode input expected =
-      (log $ "encode " <> show input <> " == \"" <> show expected <> "\"") *> assert (encode input == expected)
+  testEncode :: FormURLEncoded -> Maybe String -> Effect Unit
+  testEncode input expected =
+    (log $ "encode " <> show input <> " == \"" <> show expected <> "\"") *> assert (encode input == expected)

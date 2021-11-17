@@ -11,6 +11,7 @@ New features:
 Bugfixes:
 
 Other improvements:
+- Added `purs-tidy` formatter (#26 by @thomashoneyman)
 
 ## [v6.0.2](https://github.com/purescript-contrib/purescript-form-urlencoded/releases/tag/v6.0.2) - 2021-06-16
 
