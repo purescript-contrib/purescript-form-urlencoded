@@ -14,17 +14,17 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-foldable-traversable": "^5.0.0",
-    "purescript-maybe": "^5.0.0",
-    "purescript-newtype": "^4.0.0",
-    "purescript-prelude": "^5.0.0",
-    "purescript-strings": "^5.0.0",
-    "purescript-tuples": "^6.0.0",
-    "purescript-js-uri": "https://github.com/purescript-contrib/purescript-js-uri.git#2.0.0"
+    "purescript-foldable-traversable": "master",
+    "purescript-maybe": "master",
+    "purescript-newtype": "master",
+    "purescript-prelude": "master",
+    "purescript-strings": "master",
+    "purescript-tuples": "master",
+    "purescript-js-uri": "https://github.com/purescript-contrib/purescript-js-uri.git#main"
   },
   "devDependencies": {
-    "purescript-assert": "^5.0.0",
-    "purescript-console": "^5.0.0",
-    "purescript-effect": "^3.0.0"
+    "purescript-assert": "master",
+    "purescript-console": "master",
+    "purescript-effect": "master"
   }
 }
