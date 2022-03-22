@@ -20,7 +20,7 @@
     "purescript-prelude": "master",
     "purescript-strings": "master",
     "purescript-tuples": "master",
-    "purescript-js-uri": "main"
+    "purescript-js-uri": "https://github.com/purescript-contrib/purescript-js-uri.git#main"
   },
   "devDependencies": {
     "purescript-assert": "master",
