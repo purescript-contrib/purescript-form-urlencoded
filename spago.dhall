@@ -8,7 +8,6 @@
   , "maybe"
   , "newtype"
   , "prelude"
-  , "psci-support"
   , "strings"
   , "tuples"
   ]
